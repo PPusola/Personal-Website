@@ -4,7 +4,8 @@ import Footer from './components/Footer'
 import AnimatedBackground from './components/AnimatedBackground'
 import About from './pages/About'
 import ProjectsPage from './pages/ProjectsPage'
-import InternshipsPage from './pages/InternshipsPage'
+import ProjectCategoryPage from './pages/ProjectCategoryPage'
+import ExperiencePage from './pages/ExperiencePage'
 import AwardsPage from './pages/AwardsPage'
 import HobbiesPage from './pages/HobbiesPage'
 import { useTimeBasedTheme } from './hooks/useTimeBasedTheme'
@@ -21,7 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/internships" element={<InternshipsPage />} />
+            <Route path="/projects/:category" element={<ProjectCategoryPage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/internships" element={<ExperiencePage />} />
             <Route path="/awards" element={<AwardsPage />} />
             <Route path="/hobbies" element={<HobbiesPage />} />
           </Routes>
@@ -33,4 +36,3 @@ function App() {
 }
 
 export default App
-

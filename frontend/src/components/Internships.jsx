@@ -1,7 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useTimeBasedTheme } from '../hooks/useTimeBasedTheme'
 
-const InternshipCard = ({ internship, index }) => {
+const ExperienceCard = ({ experience, index }) => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const theme = useTimeBasedTheme()
 
@@ -20,16 +20,15 @@ const InternshipCard = ({ internship, index }) => {
       <div className="md:w-1/2 md:px-8 mb-4 md:mb-0">
         <div className={`${theme.card} rounded-lg ${theme.shadow} hover:shadow-xl transition-all p-6 border ${theme.border} transform hover:scale-105`}>
           <div className="text-sm font-semibold text-primary-600 mb-2">
-            {internship.date}
+            {experience.date}
           </div>
           <h3 className={`text-xl font-semibold mb-1 ${theme.text.primary}`}>
-            {internship.title}
+            {experience.title}
           </h3>
-          <h4 className="text-lg text-primary-600 mb-3">{internship.company}</h4>
-          <p className={`${theme.text.secondary} mb-4`}>{internship.description}</p>
-          {internship.responsibilities && internship.responsibilities.length > 0 && (
+          <h4 className="text-lg text-primary-600 mb-3">{experience.company}</h4>
+          {experience.responsibilities && experience.responsibilities.length > 0 && (
             <ul className={`list-disc list-inside space-y-2 ${theme.text.secondary}`}>
-              {internship.responsibilities.map((resp, idx) => (
+              {experience.responsibilities.map((resp, idx) => (
                 <li key={idx} className={`transition-all ${theme.hover.text}`}>{resp}</li>
               ))}
             </ul>
@@ -41,25 +40,25 @@ const InternshipCard = ({ internship, index }) => {
   )
 }
 
-const Internships = ({ internships }) => {
+const Experiences = ({ experiences }) => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const theme = useTimeBasedTheme()
 
-  if (!internships || internships.length === 0) {
+  if (!experiences || experiences.length === 0) {
     return (
-      <section id="internships" className={`py-20 ${theme.bg.secondary} transition-colors duration-500`}>
+      <section id="experience" className={`py-20 ${theme.bg.secondary} transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className={`text-3xl md:text-4xl font-bold text-center mb-12 ${theme.text.primary}`}>
-            Internship Experiences
+            Experience
           </h2>
-          <p className={`text-center ${theme.text.muted}`}>No internships available yet.</p>
+          <p className={`text-center ${theme.text.muted}`}>No experience available yet.</p>
         </div>
       </section>
     )
   }
 
   return (
-    <section id="internships" className={`py-20 ${theme.bg.secondary} transition-colors duration-500`}>
+    <section id="experience" className={`py-20 ${theme.bg.secondary} transition-colors duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
           ref={ref}
@@ -69,15 +68,15 @@ const Internships = ({ internships }) => {
               : 'opacity-0 -translate-y-5'
           }`}
         >
-          Internship Experiences
+          Experience
         </h2>
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary-400 transform md:-translate-x-1/2"></div>
           
           <div className="space-y-12">
-            {internships.map((internship, index) => (
-              <InternshipCard key={internship.id} internship={internship} index={index} />
+            {experiences.map((experience, index) => (
+              <ExperienceCard key={experience.id} experience={experience} index={index} />
             ))}
           </div>
         </div>
@@ -86,5 +85,4 @@ const Internships = ({ internships }) => {
   )
 }
 
-export default Internships
-
+export default Experiences

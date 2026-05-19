@@ -63,10 +63,10 @@ const Navbar = () => {
                 Projects
               </Link>
               <Link
-                to="/internships"
+                to="/experience"
                 className={`${theme.text.secondary} ${theme.hover.text} px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105`}
               >
-                Internships
+                Experience
               </Link>
               <Link
                 to="/awards"
@@ -144,11 +144,11 @@ const Navbar = () => {
               Projects
             </Link>
             <Link
-              to="/internships"
+              to="/experience"
               onClick={() => setIsOpen(false)}
               className={`block ${theme.text.secondary} ${theme.hover.text} px-3 py-2 rounded-md text-base font-medium w-full text-left`}
             >
-              Internships
+              Experience
             </Link>
             <Link
               to="/awards"
@@ -193,4 +193,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-

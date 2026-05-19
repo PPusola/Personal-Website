@@ -37,7 +37,7 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </div>
       
-      <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-6 pb-6 pt-0 space-y-4">
           <p className={theme.text.secondary}>{project.description}</p>
           
@@ -57,8 +57,23 @@ const ProjectCard = ({ project, index }) => {
             </div>
           )}
           
-          {project.link && (
-            <div>
+          {(project.link || project.live_url) && (
+            <div className="flex flex-wrap gap-4">
+              {project.live_url && (
+                <a
+                  href={project.live_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-all group"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-6.75 6.75M6 8.25v9.75h9.75" />
+                  </svg>
+                  View Live
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+              )}
+              {project.link && (
               <a
                 href={project.link}
                 target="_blank"
@@ -71,6 +86,7 @@ const ProjectCard = ({ project, index }) => {
                 View on GitHub
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
+              )}
             </div>
           )}
         </div>
@@ -120,4 +136,3 @@ const Projects = ({ projects }) => {
 }
 
 export default Projects
-
