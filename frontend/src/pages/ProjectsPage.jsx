@@ -11,34 +11,40 @@ const CategoryCard = ({ category, projectCount, index }) => {
     <Link
       to={`/projects/${category.key}`}
       ref={ref}
-      className={`group block ${theme.card} rounded-2xl ${theme.shadow} hover:shadow-2xl border ${theme.border} transition-all duration-500 transform cursor-pointer overflow-hidden ${
+      className={`group relative block ${theme.card} rounded-3xl ${theme.shadow} hover:shadow-2xl border ${theme.border} transition-all duration-500 transform cursor-pointer overflow-hidden ${
         isVisible
           ? 'opacity-100 translate-y-0 scale-100'
           : 'opacity-0 translate-y-8 scale-95'
-      } hover:scale-105`}
+      } hover:scale-[1.03]`}
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       {/* Gradient bar */}
-      <div className={`h-2 w-full bg-gradient-to-r ${category.color}`} />
+      <div className={`h-1.5 w-full bg-gradient-to-r ${category.color}`} />
 
-      <div className="p-8">
-        <div className="text-5xl mb-4 transition-transform duration-300 group-hover:scale-110">
+      <div className="p-10 flex flex-col gap-6 min-h-[280px]">
+        {/* Icon */}
+        <div className="text-6xl transition-transform duration-300 group-hover:scale-110 leading-none">
           {category.icon}
         </div>
-        <h3 className={`text-2xl font-bold mb-2 ${theme.text.primary}`}>
-          {category.label}
-        </h3>
-        <p className={`${theme.text.secondary} text-sm mb-6 leading-relaxed`}>
-          {category.description}
-        </p>
 
-        <div className="flex items-center justify-between">
+        {/* Text */}
+        <div className="flex-1">
+          <h3 className={`text-3xl font-bold mb-3 ${theme.text.primary}`}>
+            {category.label}
+          </h3>
+          <p className={`${theme.text.secondary} text-base leading-relaxed`}>
+            {category.description}
+          </p>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-2">
           <span className={`text-sm font-medium ${theme.text.muted}`}>
             {projectCount} project{projectCount !== 1 ? 's' : ''}
           </span>
-          <span className={`flex items-center gap-1 text-sm font-semibold text-primary-600 group-hover:gap-2 transition-all`}>
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-primary-600 group-hover:gap-3 transition-all duration-300">
             View Projects
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </span>
@@ -46,7 +52,7 @@ const CategoryCard = ({ category, projectCount, index }) => {
       </div>
 
       {/* Hover gradient overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none rounded-2xl`} />
+      <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-300 pointer-events-none`} />
     </Link>
   )
 }
@@ -77,7 +83,7 @@ const ProjectsPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {Object.values(PROJECT_CATEGORIES).map((category, index) => (
             <CategoryCard
               key={category.key}
