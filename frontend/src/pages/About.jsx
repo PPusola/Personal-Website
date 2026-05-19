@@ -32,7 +32,7 @@ const About = () => {
             </p>
             <p className={`text-lg ${theme.text.muted} leading-relaxed`}>
               Passionate about building innovative web applications, AI-powered tools, and scalable systems.
-              Computer Science graduate (Minor in Economics) from the University of Alberta — Dec. 2025.
+              Computer Science graduate with a Minor in Economics from the University of Alberta, Dec. 2025.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ const About = () => {
                 >
                   booyaa.net
                 </a>
-                , a freelance web development business where I build professional websites for clients —
+                , a freelance web development business where I build professional websites for clients,
                 handling everything from UI/UX and branding to SEO and contact forms.
               </p>
             </div>

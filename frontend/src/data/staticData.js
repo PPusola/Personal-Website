@@ -226,7 +226,7 @@ export const staticExperiences = [
     id: 1,
     title: 'Founder & Developer',
     company: 'Booyaa',
-    date: 'Mar. 2026 – Present',
+    date: 'Mar. 2026 to Present',
     responsibilities: [
       'Built and launched booyaa.net, a freelance web development business delivering professional client websites',
       'Developed a full client project (Caroline Does Numbers), including responsive service pages, contact forms, branding, UI/UX, and SEO optimization',
@@ -237,7 +237,7 @@ export const staticExperiences = [
     id: 2,
     title: 'Functional Safety Co-op',
     company: 'BlackBerry QNX',
-    date: 'May 2024 – Aug. 2024',
+    date: 'May 2024 to Aug. 2024',
     responsibilities: [
       'Authored C standard library functional tests for QNX RTOS targeting ARM, x86, and x64 architectures, validating POSIX compliance and edge-case error handling against official C standard documentation',
       'Designed test flag annotations to integrate with the regression pipeline, ensuring each test case was correctly indexed and traceable through final regression review before merging to the main QNX branch',
@@ -248,7 +248,7 @@ export const staticExperiences = [
     id: 3,
     title: 'Software Developer Intern',
     company: 'Newgen Software',
-    date: 'June 2023 – Aug. 2023',
+    date: 'June 2023 to Aug. 2023',
     responsibilities: [
       'Researched OpenAI model APIs and fine-tuned GPT-3.5 using LlamaIndex Vector Store, achieving a 25% improvement in model accuracy and 10% faster response times',
       'Built a multimodal Gradio app supporting audio and image uploads to automatically extract meeting notes from recordings and itemize receipts from photos',
@@ -278,7 +278,7 @@ export const staticAwards = [
     id: 3,
     title: 'ODSC Agentic AI Conference',
     organization: 'ODSC',
-    description: 'Attendee at the Open Data Science Conference — Agentic AI 2025',
+    description: 'Attendee at the Open Data Science Conference, Agentic AI 2025',
     date: '2025',
     icon: '🤖',
   },

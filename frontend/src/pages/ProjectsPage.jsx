@@ -73,7 +73,7 @@ const ProjectsPage = () => {
             Projects
           </h2>
           <p className={`text-xl ${theme.text.secondary} max-w-2xl`}>
-            A collection of things I've built — explore by category.
+            A collection of things I've built. Explore by category.
           </p>
         </div>
 
