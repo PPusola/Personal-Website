@@ -5,6 +5,7 @@ import { staticExperiences } from '../data/staticData'
 const ExperiencePage = () => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const theme = useTimeBasedTheme()
+  const accentLine = theme.mode === 'dark' ? 'bg-primary-400' : 'bg-primary-700'
 
   return (
     <div className="min-h-screen pt-24 pb-16 relative">
@@ -18,11 +19,11 @@ const ExperiencePage = () => {
           Experience
         </h2>
 
-        <div className="space-y-10">
+        <div className={`divide-y ${theme.border} border-y ${theme.border}`}>
           {staticExperiences.map((experience) => (
-            <div
+            <article
               key={experience.id}
-              className={`${theme.card} rounded-xl ${theme.shadow} p-8 border ${theme.border}`}
+              className="py-8"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                 <div>
@@ -39,16 +40,16 @@ const ExperiencePage = () => {
               </div>
 
               {experience.responsibilities && experience.responsibilities.length > 0 && (
-                <ul className={`space-y-2 ${theme.text.secondary}`}>
+                <ul className={`space-y-3 ${theme.text.secondary}`}>
                   {experience.responsibilities.map((resp, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-600 flex-shrink-0" />
+                      <span className={`mt-2 h-px w-4 ${accentLine} flex-shrink-0`} />
                       <span className="leading-relaxed">{resp}</span>
                     </li>
                   ))}
                 </ul>
               )}
-            </div>
+            </article>
           ))}
         </div>
       </div>
