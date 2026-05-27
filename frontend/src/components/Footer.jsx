@@ -6,24 +6,32 @@ const Footer = () => {
   const theme = useTimeBasedTheme()
 
   return (
-    <footer id="contact" className={`${theme.footer} text-white py-12 transition-colors duration-500`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="contact" className={`${theme.footer} text-white py-10 transition-colors duration-500`}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref={ref}
-          className={`text-center transition-all duration-1000 ${
+          className={`transition-all duration-700 ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
+              : 'opacity-0 translate-y-6'
           }`}
         >
-          <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and interesting projects.
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-3">Contact</h2>
+              <p className="text-gray-300 max-w-2xl">
+                Open to software roles, freelance web work, and practical product ideas.
+              </p>
+            </div>
+            <p className="text-gray-400 text-sm">
+              &copy; {new Date().getFullYear()} Priyanshu Pusola
+            </p>
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
             <a
               href="mailto:pusola@ualberta.ca"
-              className="text-gray-300 hover:text-white transition-all transform hover:scale-110"
+              className="text-gray-300 hover:text-white transition-colors"
               aria-label="Email"
             >
               pusola@ualberta.ca
@@ -31,37 +39,43 @@ const Footer = () => {
             <span className="text-gray-500 hidden sm:inline">|</span>
             <a
               href="tel:8259661673"
-              className="text-gray-300 hover:text-white transition-all transform hover:scale-110"
+              className="text-gray-300 hover:text-white transition-colors"
               aria-label="Phone"
             >
               (825) 966-1673
             </a>
             <span className="text-gray-500 hidden sm:inline">|</span>
             <span className="text-gray-300">Edmonton, AB</span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <span className="text-gray-500 hidden sm:inline">|</span>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/priyanshu-pusola"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-all transform hover:scale-110"
+              className="text-gray-300 hover:text-white transition-colors"
               aria-label="LinkedIn"
             >
               LinkedIn
             </a>
+            <span className="text-gray-500 hidden sm:inline">|</span>
             <a
-              href="https://github.com"
+              href="https://github.com/PPusola"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-all transform hover:scale-110"
+              className="text-gray-300 hover:text-white transition-colors"
               aria-label="GitHub"
             >
               GitHub
             </a>
+            <span className="text-gray-500 hidden sm:inline">|</span>
+            <a
+              href="https://booyaa.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              booyaa.net
+            </a>
           </div>
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Priyanshu Pusola. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
@@ -69,4 +83,3 @@ const Footer = () => {
 }
 
 export default Footer
-

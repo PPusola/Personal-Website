@@ -22,8 +22,7 @@ const ProjectCard = ({ project, index }) => {
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center justify-between mb-2">
-          <h3 className={`text-xl font-semibold ${theme.text.primary} flex items-center gap-3`}>
-            <span className="text-2xl">{project.icon || '💻'}</span>
+          <h3 className={`text-xl font-semibold ${theme.text.primary}`}>
             {project.title}
           </h3>
           <button

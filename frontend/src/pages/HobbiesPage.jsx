@@ -18,16 +18,15 @@ const HobbiesPage = () => {
           Hobbies & Interests
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l ${theme.border}`}>
           {staticHobbies.map((hobby) => (
-            <div
+            <article
               key={hobby.id}
-              className={`${theme.card} rounded-xl ${theme.shadow} hover:shadow-xl transition-all duration-700 p-6 border ${theme.border} text-center transform hover:scale-105`}
+              className={`p-6 border-b border-r ${theme.border} ${theme.card}`}
             >
-              <div className="text-5xl mb-4">{hobby.icon || '🎯'}</div>
-              <h3 className={`text-xl font-semibold mb-3 ${theme.text.primary}`}>{hobby.title}</h3>
-              <p className={theme.text.secondary}>{hobby.description}</p>
-            </div>
+              <h3 className={`text-xl font-semibold ${theme.text.primary}`}>{hobby.title}</h3>
+              <p className={`mt-3 ${theme.text.secondary} leading-relaxed`}>{hobby.description}</p>
+            </article>
           ))}
         </div>
       </div>

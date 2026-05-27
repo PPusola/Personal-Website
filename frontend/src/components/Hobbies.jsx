@@ -15,9 +15,6 @@ const HobbyCard = ({ hobby, index }) => {
       } hover:scale-105`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="text-5xl mb-4 transform transition-transform hover:scale-110 hover:rotate-6">
-        {hobby.icon || '🎯'}
-      </div>
       <h3 className={`text-xl font-semibold mb-3 ${theme.text.primary}`}>{hobby.title}</h3>
       <p className={theme.text.secondary}>{hobby.description}</p>
     </div>
@@ -65,4 +62,3 @@ const Hobbies = ({ hobbies }) => {
 }
 
 export default Hobbies
-

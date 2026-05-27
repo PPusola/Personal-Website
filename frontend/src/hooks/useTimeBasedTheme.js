@@ -15,8 +15,8 @@ export const clearThemeOverride = () => {
 }
 
 /**
- * Hook that provides time-based theme colors
- * Changes between light and dark themes based on time of day
+ * Hook that provides site theme colors
+ * Uses dark mode by default
  * Supports manual override via setThemeOverride
  */
 export const useTimeBasedTheme = () => {
@@ -24,8 +24,7 @@ export const useTimeBasedTheme = () => {
     if (manualThemeOverride) {
       return manualThemeOverride
     }
-    const hour = new Date().getHours()
-    return hour >= 6 && hour < 18 ? 'light' : 'dark'
+    return 'dark'
   }
 
   const [theme, setTheme] = useState(getTheme)
@@ -38,12 +37,11 @@ export const useTimeBasedTheme = () => {
 
     const updateTheme = () => {
       if (!manualThemeOverride) {
-        const hour = new Date().getHours()
-        setTheme(hour >= 6 && hour < 18 ? 'light' : 'dark')
+        setTheme('dark')
       }
     }
 
-    // Update theme every hour (only if no manual override)
+    // Keep the default stable while still allowing manual overrides.
     const interval = setInterval(updateTheme, 60 * 60 * 1000)
     
     // Update theme on mount
@@ -55,12 +53,12 @@ export const useTimeBasedTheme = () => {
     }
   }, [])
 
-  // Light theme colors (day time 6 AM - 6 PM)
+  // Light theme colors
   const lightTheme = {
     mode: 'light',
     bg: {
-      primary: 'bg-white',
-      secondary: 'bg-gray-50',
+      primary: 'bg-[#f8f7f3]',
+      secondary: 'bg-[#f1efe8]',
       accent: 'bg-primary-50',
     },
     text: {
@@ -69,22 +67,22 @@ export const useTimeBasedTheme = () => {
       muted: 'text-gray-500',
     },
     border: 'border-gray-200',
-    card: 'bg-white',
-    navbar: 'bg-white',
+    card: 'bg-[#fffefa]',
+    navbar: 'bg-[#f8f7f3]/95',
     footer: 'bg-gray-900',
     gradient: 'from-primary-50 to-white',
-    shadow: 'shadow-md',
+    shadow: 'shadow-sm',
     hover: {
       card: 'hover:bg-primary-50',
       text: 'hover:text-primary-600',
     },
   }
 
-  // Dark theme colors (night time 6 PM - 6 AM)
+  // Dark theme colors
   const darkTheme = {
     mode: 'dark',
     bg: {
-      primary: 'bg-gray-900',
+      primary: 'bg-[#0f1115]',
       secondary: 'bg-gray-800',
       accent: 'bg-gray-700',
     },
@@ -94,8 +92,8 @@ export const useTimeBasedTheme = () => {
       muted: 'text-gray-400',
     },
     border: 'border-gray-700',
-    card: 'bg-gray-800',
-    navbar: 'bg-gray-900',
+    card: 'bg-[#151922]',
+    navbar: 'bg-[#0f1115]/95',
     footer: 'bg-black',
     gradient: 'from-gray-900 to-gray-800',
     shadow: 'shadow-lg',
@@ -107,4 +105,3 @@ export const useTimeBasedTheme = () => {
 
   return theme === 'light' ? lightTheme : darkTheme
 }
-

@@ -15,9 +15,6 @@ const AwardCard = ({ award, index }) => {
       } hover:scale-105`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="text-5xl mb-4 transform transition-transform hover:scale-110 hover:rotate-12">
-        {award.icon || '🏆'}
-      </div>
       <h3 className={`text-xl font-semibold mb-2 ${theme.text.primary}`}>{award.title}</h3>
       <p className="text-primary-600 font-medium mb-1">{award.organization}</p>
       <p className={`text-sm mb-3 ${theme.text.muted}`}>{award.date}</p>
@@ -67,4 +64,3 @@ const Awards = ({ awards }) => {
 }
 
 export default Awards
-
